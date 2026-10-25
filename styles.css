@@ -1,0 +1,1510 @@
+/* Import Google Fonts for better typography */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Dancing+Script:wght@400;600;700&display=swap');
+
+/* CSS Variables - Theme matching reference images */
+:root {
+    --primary-blue: #5b8db8;
+    --soft-blue: #b8d4e8;
+    --light-blue: #e3f0f7;
+    --accent-blue: #4a7ba0;
+    --navy-blue: #2c4a5f;
+    --text-dark: #2c4a5f;
+    --text-light: #5a7a8f;
+    --white: #ffffff;
+    --cream: #fef9f3;
+    --pink-tint: #fde8e8;
+    --shadow-soft: rgba(44, 74, 95, 0.08);
+    --shadow-medium: rgba(44, 74, 95, 0.15);
+    --shadow-strong: rgba(44, 74, 95, 0.25);
+}
+
+/* CSS Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Lora', 'Georgia', serif;
+    line-height: 1.7;
+    color: var(--text-dark);
+    background: linear-gradient(180deg, 
+        var(--cream) 0%, 
+        var(--light-blue) 15%,
+        var(--pink-tint) 35%,
+        var(--light-blue) 60%,
+        var(--cream) 85%,
+        #fff 100%
+    );
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Animated Watercolor Background Effects */
+body::before {
+    content: '';
+    position: fixed;
+    top: -10%;
+    right: -10%;
+    width: 40%;
+    height: 40%;
+    background: radial-gradient(circle, rgba(184, 212, 232, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float-1 25s ease-in-out infinite;
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    bottom: -15%;
+    left: -10%;
+    width: 45%;
+    height: 45%;
+    background: radial-gradient(circle, rgba(253, 232, 232, 0.35) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float-2 30s ease-in-out infinite;
+    z-index: 0;
+}
+
+@keyframes float-1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(-30px, 40px) scale(1.1); }
+    50% { transform: translate(20px, -30px) scale(0.95); }
+    75% { transform: translate(-20px, -40px) scale(1.05); }
+}
+
+@keyframes float-2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(40px, -30px) scale(1.08); }
+    66% { transform: translate(-30px, 20px) scale(0.92); }
+}
+
+/* Decorative Elements - Stars, Hearts, Crosses */
+.decorative-stars,
+.decorative-hearts,
+.decorative-crosses {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Container with max-width and centering */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* Header - Scripture Quote Section */
+.header {
+    text-align: center;
+    padding: 60px 30px 40px;
+    position: relative;
+}
+
+.scripture {
+    font-family: 'Lora', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto 25px;
+    line-height: 1.9;
+    position: relative;
+}
+
+.scripture::before,
+.scripture::after {
+    content: '"';
+    font-size: 2.5rem;
+    color: var(--soft-blue);
+    opacity: 0.4;
+    font-family: Georgia, serif;
+}
+
+.decorative-elements {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.cross {
+    font-size: 1.4rem;
+    color: var(--primary-blue);
+    opacity: 0.7;
+    animation: gentle-pulse 3s ease-in-out infinite;
+}
+
+.cross:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.cross:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes gentle-pulse {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.1); }
+}
+
+/* Main Event Section - Full page card style like reference */
+.event-section {
+    background: var(--white);
+    margin: 0;
+    padding: 60px 40px 80px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 -5px 30px var(--shadow-soft);
+}
+
+/* Decorative illustrations positioning */
+.event-section::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,10 L55,40 L85,45 L60,65 L70,95 L50,80 L30,95 L40,65 L15,45 L45,40 Z" fill="%23b8d4e8" opacity="0.3"/></svg>') center/contain no-repeat;
+    pointer-events: none;
+    animation: twinkle 4s ease-in-out infinite;
+}
+
+.event-section::after {
+    content: '♡';
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    font-size: 3.5rem;
+    color: var(--soft-blue);
+    opacity: 0.25;
+    animation: heartbeat 2.5s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: rotate(0deg); }
+    50% { opacity: 0.6; transform: rotate(10deg); }
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.05); }
+}
+
+.event-title {
+    font-family: 'Lora', serif;
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-bottom: 40px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+/* Baby Photo with decorative elements */
+.baby-photo-container {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin: 0 auto 40px;
+}
+
+.baby-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 10px solid var(--white);
+    box-shadow: 0 10px 40px var(--shadow-medium);
+    position: relative;
+    z-index: 2;
+}
+
+.photo-decoration {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    border: 3px dashed var(--soft-blue);
+    border-radius: 50%;
+    animation: rotate-decoration 25s linear infinite;
+    opacity: 0.6;
+}
+
+.photo-decoration::before,
+.photo-decoration::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--navy-blue);
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+.photo-decoration::before {
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.photo-decoration::after {
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes rotate-decoration {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Baptism Title - Large decorative */
+.baptism-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: var(--navy-blue);
+    letter-spacing: 8px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.baptism-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
+}
+
+.child-name {
+    font-family: 'Lora', serif;
+    font-size: 1.4rem;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.invitation-text {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 550px;
+    margin: 0 auto 50px;
+    line-height: 1.8;
+    font-style: italic;
+}
+
+/* Event Details Card */
+.event-details {
+    background: linear-gradient(135deg, var(--light-blue) 0%, rgba(184, 212, 232, 0.3) 100%);
+    border-radius: 25px;
+    padding: 40px;
+    margin: 40px auto;
+    display: inline-block;
+    box-shadow: 0 8px 30px var(--shadow-soft);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 25px;
+    font-size: 1.15rem;
+    color: var(--text-dark);
+}
+
+.detail-item:last-child {
+    margin-bottom: 0;
+}
+
+.detail-icon {
+    font-size: 1.8rem;
+    filter: drop-shadow(0 2px 4px var(--shadow-soft));
+}
+
+.detail-text {
+    font-weight: 600;
+    font-family: 'Lora', serif;
+}
+
+.venue-details {
+    text-align: center;
+}
+
+.venue-name,
+.venue-location {
+    font-weight: 700;
+    color: var(--navy-blue);
+    margin-bottom: 3px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+}
+
+.venue-address {
+    font-style: italic;
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+/* RSVP Info */
+.rsvp-info {
+    margin-top: 40px;
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+.rsvp-text {
+    margin-bottom: 8px;
+    font-style: italic;
+}
+
+.rsvp-contact {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 1.05rem;
+    margin-bottom: 3px;
+}
+
+/* Godparents Section - Full page style */
+.godparents-section {
+    background: var(--white);
+    margin: 0;
+    padding: 70px 40px;
+    position: relative;
+    box-shadow: 0 -5px 30px var(--shadow-soft);
+}
+
+.section-title {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: var(--primary-blue);
+    letter-spacing: 2px;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.section-title::after {
+    content: '✟';
+    position: absolute;
+    top: -20px;
+    right: calc(50% - 20px);
+    font-size: 1.5rem;
+    color: var(--soft-blue);
+    opacity: 0.5;
+}
+
+.godparents-subtitle {
+    text-align: center;
+    font-size: 1.05rem;
+    color: var(--text-light);
+    margin-bottom: 50px;
+    font-style: italic;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.godparents-nickname {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--primary-blue);
+    margin: 50px 0 35px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    position: relative;
+}
+
+.godparents-nickname::before,
+.godparents-nickname::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--soft-blue));
+}
+
+.godparents-nickname::before {
+    right: calc(100% + 20px);
+}
+
+.godparents-nickname::after {
+    left: calc(100% + 20px);
+    background: linear-gradient(90deg, var(--soft-blue), transparent);
+}
+
+/* Godparents Grid */
+.godparents-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.godparent-names {
+    list-style: none;
+    padding: 0;
+}
+
+.godparent-names li {
+    padding: 12px 20px;
+    color: var(--navy-blue);
+    font-size: 1.05rem;
+    border-bottom: 1px solid rgba(184, 212, 232, 0.4);
+    font-family: 'Lora', serif;
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: default;
+}
+
+.godparent-names li:hover {
+    background: var(--light-blue);
+    padding-left: 30px;
+    border-bottom-color: var(--primary-blue);
+}
+
+.godparent-names li::before {
+    content: '♡';
+    position: absolute;
+    left: 8px;
+    opacity: 0;
+    color: var(--primary-blue);
+    transition: opacity 0.3s ease;
+}
+
+.godparent-names li:hover::before {
+    opacity: 0.6;
+}
+
+.godparent-names li:last-child {
+    border-bottom: none;
+}
+
+.godparents-second-section {
+    margin-top: 60px;
+    padding-top: 60px;
+    border-top: 2px dashed var(--soft-blue);
+}
+
+/* Dress Code & Gift Guide Sections */
+.dress-code-section,
+.gift-guide-section {
+    background: var(--white);
+    margin: 0;
+    padding: 70px 50px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 -5px 30px var(--shadow-soft);
+}
+
+.dress-code-title,
+.gift-guide-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.2rem;
+    color: var(--navy-blue);
+}
+
+.dress-code-text,
+.gift-guide-text {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    line-height: 2;
+    max-width: 650px;
+    margin: 30px auto 0;
+}
+
+.dress-code-text strong,
+.gift-guide-text strong {
+    color: var(--navy-blue);
+    font-weight: 700;
+}
+
+/* RSVP Button - Prominent and interactive */
+.rsvp-button-container {
+    text-align: center;
+    padding: 60px 0;
+    background: var(--white);
+}
+
+.rsvp-button {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
+    color: var(--white);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    padding: 20px 60px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 10px 40px var(--shadow-medium);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.rsvp-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.rsvp-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.rsvp-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 50px var(--shadow-strong);
+}
+
+.rsvp-button:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* Audio Toggle - Fixed position */
+.audio-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--white) 0%, var(--light-blue) 100%);
+    border: 3px solid var(--primary-blue);
+    cursor: pointer;
+    box-shadow: 0 8px 30px var(--shadow-medium);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.audio-toggle:hover {
+    transform: scale(1.15) rotate(10deg);
+    box-shadow: 0 12px 40px var(--shadow-strong);
+}
+
+.audio-toggle:active {
+    transform: scale(1.05);
+}
+
+.audio-icon {
+    font-size: 1.6rem;
+    filter: drop-shadow(0 2px 4px var(--shadow-soft));
+}
+
+/* Modal Styles - Professional overlay */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(44, 74, 95, 0.7);
+    backdrop-filter: blur(8px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: var(--white);
+    border-radius: 35px;
+    padding: 50px 45px;
+    max-width: 550px;
+    width: 92%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 25px 80px rgba(44, 74, 95, 0.4);
+    animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    line-height: 1;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.close:hover {
+    color: var(--navy-blue);
+    background: var(--light-blue);
+    transform: rotate(90deg);
+}
+
+.modal-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--navy-blue);
+    margin-bottom: 12px;
+}
+
+.modal-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 35px;
+    font-style: italic;
+    font-size: 1.05rem;
+}
+
+/* Form Styles - Professional and clean */
+.form-group {
+    margin-bottom: 28px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 0.98rem;
+    font-family: 'Lora', serif;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid var(--soft-blue);
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: 'Lora', serif;
+    transition: all 0.3s ease;
+    background: var(--white);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 4px rgba(91, 141, 184, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.submit-button {
+    width: 100%;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
+    color: var(--white);
+    font-size: 1.15rem;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    letter-spacing: 1px;
+}
+
+.submit-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px var(--shadow-medium);
+}
+
+.submit-button:active {
+    transform: translateY(-1px);
+}
+
+.submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Form Message - Success/Error states */
+.form-message {
+    margin-top: 25px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    display: none;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-message.error {
+    display: block;
+    background: #ffe6e6;
+    color: #c0392b;
+    border: 2px solid #e74c3c;
+}
+
+.form-message.success {
+    display: block;
+    background: #e6f7f1;
+    color: #27ae60;
+    border: 2px solid #2ecc71;
+}
+
+/* Animations - Fade in effects */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1.2s ease-out;
+}
+
+.fade-in-delay-1 {
+    animation: fadeIn 1.2s ease-out 0.3s both;
+}
+
+.fade-in-delay-2 {
+    animation: fadeIn 1.2s ease-out 0.6s both;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-blue);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-blue);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-blue);
+}
+
+/* Responsive Design - Mobile First */
+@media (max-width: 768px) {
+    .container {
+        padding: 0;
+    }
+
+    .header {
+        padding: 40px 20px 30px;
+    }
+
+    .scripture {
+        font-size: 0.95rem;
+    }
+
+    .event-section,
+    .godparents-section,
+    .dress-code-section,
+    .gift-guide-section {
+        padding: 50px 25px;
+    }
+
+    .baptism-title {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+    }
+
+    .event-title {
+        font-size: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 2.8rem;
+    }
+
+    .baby-photo-container {
+        width: 220px;
+        height: 220px;
+    }
+
+    .event-details {
+        padding: 30px 25px;
+    }
+
+    .godparents-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .godparents-nickname::before,
+    .godparents-nickname::after {
+        width: 50px;
+    }
+
+    .modal-content {
+        padding: 40px 30px;
+        width: 95%;
+        border-radius: 25px;
+    }
+
+    .rsvp-button {
+        font-size: 1.2rem;
+        padding: 16px 45px;
+    }
+
+    .audio-toggle {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .audio-icon {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .scripture {
+        font-size: 0.9rem;
+    }
+
+    .baptism-title {
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+
+    .child-name {
+        font-size: 1.1rem;
+    }
+
+    .section-title {
+        font-size: 2.3rem;
+    }
+
+    .godparent-names li {
+        font-size: 0.98rem;
+        padding: 10px 15px;
+    }
+
+    .rsvp-button {
+        font-size: 1.1rem;
+        padding: 14px 35px;
+    }
+
+    .event-details {
+        padding: 25px 20px;
+    }
+
+    .detail-item {
+        font-size: 1rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .audio-toggle,
+    .rsvp-button-container,
+    .modal {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+    }
+
+    .event-section,
+    .godparents-section,
+    .dress-code-section,
+    .gift-guide-section {
+        box-shadow: none;
+        page-break-inside: avoid;
+    }
+
+    body::before,
+    body::after {
+        display: none;
+    }
+}
+
+/* Accessibility - Focus visible for keyboard navigation */
+*:focus-visible {
+    outline: 3px solid var(--primary-blue);
+    outline-offset: 3px;
+}
+
+/* Loading Animation (optional) */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+
+/* ========================================
+   GORGEOUS DECORATIVE ELEMENTS
+   Teddy Bears, Balloons, Party Decorations
+   ======================================== */
+
+/* Decorative Bunting Flags at Top */
+.decorative-bunting {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent 0px,
+        transparent 40px,
+        var(--primary-blue) 40px,
+        var(--primary-blue) 60px,
+        transparent 60px,
+        transparent 80px,
+        var(--soft-blue) 80px,
+        var(--soft-blue) 100px,
+        transparent 100px,
+        transparent 120px,
+        #fde8e8 120px,
+        #fde8e8 140px
+    );
+    background-size: 140px 100%;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0.15;
+}
+
+.decorative-bunting::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--primary-blue);
+}
+
+.decorative-bunting::after {
+    content: '🎪 🎠 🎡 🎢 🎨 🎭 🎪 🎠 🎡 🎢 🎨 🎭';
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 1.8rem;
+    opacity: 0.2;
+    animation: bunting-sway 8s ease-in-out infinite;
+}
+
+@keyframes bunting-sway {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Party Decoration Elements */
+.party-decoration {
+    position: absolute;
+    font-size: 3.5rem;
+    opacity: 0.4;
+    pointer-events: none;
+    filter: drop-shadow(0 5px 10px rgba(91, 141, 184, 0.3));
+}
+
+.star-left {
+    top: 50px;
+    left: 40px;
+    animation: twinkle-rotate 5s ease-in-out infinite;
+}
+
+.heart-right {
+    top: 80px;
+    right: 50px;
+    animation: pulse-heart 3s ease-in-out infinite;
+}
+
+.balloon-float-1 {
+    bottom: 100px;
+    left: 60px;
+    animation: float-balloon 6s ease-in-out infinite;
+}
+
+.balloon-float-2 {
+    bottom: 150px;
+    right: 70px;
+    animation: float-balloon 7s ease-in-out infinite 1s;
+}
+
+@keyframes twinkle-rotate {
+    0%, 100% { transform: rotate(0deg) scale(1); opacity: 0.4; }
+    25% { transform: rotate(10deg) scale(1.1); opacity: 0.6; }
+    50% { transform: rotate(-5deg) scale(0.95); opacity: 0.3; }
+    75% { transform: rotate(5deg) scale(1.05); opacity: 0.5; }
+}
+
+@keyframes pulse-heart {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+@keyframes float-balloon {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-20px) rotate(-5deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+    75% { transform: translateY(-25px) rotate(-3deg); }
+}
+
+/* Floating Teddy Bears & Balloons Around Baby Photo */
+.floating-teddy,
+.floating-balloon,
+.sparkle {
+    position: absolute;
+    font-size: 2.5rem;
+    filter: drop-shadow(0 4px 8px rgba(91, 141, 184, 0.3));
+    pointer-events: none;
+}
+
+.teddy-left {
+    top: -30px;
+    left: -40px;
+    animation: teddy-bounce 4s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+.teddy-right {
+    bottom: -30px;
+    right: -40px;
+    animation: teddy-bounce 5s ease-in-out infinite 1s;
+    transform-origin: bottom center;
+}
+
+@keyframes teddy-bounce {
+    0%, 100% { transform: translateY(0px) rotate(-10deg); }
+    25% { transform: translateY(-15px) rotate(-5deg); }
+    50% { transform: translateY(-5px) rotate(-15deg); }
+    75% { transform: translateY(-10px) rotate(-8deg); }
+}
+
+.balloon-1 {
+    top: -50px;
+    right: -30px;
+    animation: balloon-drift 8s ease-in-out infinite;
+}
+
+.balloon-2 {
+    bottom: -50px;
+    left: -30px;
+    animation: balloon-drift 9s ease-in-out infinite 2s;
+}
+
+@keyframes balloon-drift {
+    0%, 100% { transform: translateY(0px) translateX(0px); }
+    25% { transform: translateY(-20px) translateX(10px); }
+    50% { transform: translateY(-30px) translateX(-10px); }
+    75% { transform: translateY(-15px) translateX(5px); }
+}
+
+/* Sparkles */
+.sparkle {
+    font-size: 1.5rem;
+    animation: sparkle-twinkle 2s ease-in-out infinite;
+}
+
+.sparkle-1 {
+    top: 20px;
+    left: 20px;
+}
+
+.sparkle-2 {
+    top: 40px;
+    right: 30px;
+    animation-delay: 0.5s;
+}
+
+.sparkle-3 {
+    bottom: 30px;
+    left: 40px;
+    animation-delay: 1s;
+}
+
+@keyframes sparkle-twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(0.8) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+}
+
+/* Baby Footprints on Godparents Section */
+.baby-footprint {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.footprint-1 {
+    top: 80px;
+    right: 50px;
+    transform: rotate(-15deg);
+    animation: footprint-fade 6s ease-in-out infinite;
+}
+
+.footprint-2 {
+    bottom: 100px;
+    left: 60px;
+    transform: rotate(20deg);
+    animation: footprint-fade 7s ease-in-out infinite 2s;
+}
+
+@keyframes footprint-fade {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.25; }
+}
+
+.angel-decoration {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    opacity: 0.2;
+    animation: angel-glow 4s ease-in-out infinite;
+}
+
+@keyframes angel-glow {
+    0%, 100% { opacity: 0.2; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); }
+    50% { opacity: 0.4; filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8)); }
+}
+
+/* Hanging Baby Items Decoration */
+.hanging-decoration {
+    position: absolute;
+    top: -20px;
+    display: flex;
+    gap: 30px;
+}
+
+.hanging-left {
+    left: 40px;
+}
+
+.hanging-right {
+    right: 40px;
+}
+
+.hanging-item {
+    font-size: 2rem;
+    animation: swing 3s ease-in-out infinite;
+    transform-origin: top center;
+    filter: drop-shadow(0 3px 6px rgba(91, 141, 184, 0.2));
+}
+
+.hanging-item:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.hanging-item:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.hanging-item:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes swing {
+    0%, 100% { transform: rotate(-8deg); }
+    50% { transform: rotate(8deg); }
+}
+
+/* Rocking Horse, Balloons, Gift Boxes */
+.rocking-horse-left {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    font-size: 4rem;
+    opacity: 0.25;
+    animation: rock-horse 4s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+@keyframes rock-horse {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+.hot-air-balloon {
+    position: absolute;
+    top: 60px;
+    right: 50px;
+    font-size: 3.5rem;
+    opacity: 0.3;
+    animation: balloon-rise 12s ease-in-out infinite;
+}
+
+@keyframes balloon-rise {
+    0%, 100% { transform: translateY(0px) translateX(0px); }
+    25% { transform: translateY(-30px) translateX(15px); }
+    50% { transform: translateY(-50px) translateX(-15px); }
+    75% { transform: translateY(-35px) translateX(10px); }
+}
+
+.gift-box-decoration {
+    position: absolute;
+    bottom: 50px;
+    right: 60px;
+    font-size: 3rem;
+    opacity: 0.3;
+    animation: gift-bounce 3s ease-in-out infinite;
+}
+
+@keyframes gift-bounce {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-15px) scale(1.1); }
+}
+
+/* Enhanced Background with More Elements */
+body::before {
+    background: radial-gradient(circle at 20% 20%, rgba(184, 212, 232, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 80% 60%, rgba(253, 232, 232, 0.35) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(227, 240, 247, 0.3) 0%, transparent 50%);
+    animation: float-1 25s ease-in-out infinite;
+}
+
+/* Confetti Burst Animation Class */
+@keyframes confetti-burst {
+    0% {
+        transform: translateY(-50px) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) scale(0.5) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Gorgeous Baptism Title Enhancement */
+.baptism-title {
+    position: relative;
+    text-shadow: 
+        0 2px 10px rgba(91, 141, 184, 0.3),
+        0 4px 20px rgba(91, 141, 184, 0.2);
+}
+
+.baptism-title::before {
+    content: '✟';
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: var(--primary-blue);
+    opacity: 0.5;
+    animation: cross-glow 3s ease-in-out infinite;
+}
+
+@keyframes cross-glow {
+    0%, 100% { 
+        opacity: 0.5; 
+        filter: drop-shadow(0 0 5px rgba(91, 141, 184, 0.5));
+    }
+    50% { 
+        opacity: 0.8; 
+        filter: drop-shadow(0 0 15px rgba(91, 141, 184, 0.8));
+    }
+}
+
+/* Gorgeous Hover Effects for Sections */
+.event-section,
+.godparents-section,
+.dress-code-section,
+.gift-guide-section {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-section:hover,
+.godparents-section:hover,
+.dress-code-section:hover,
+.gift-guide-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px var(--shadow-medium);
+}
+
+/* Particle Effects Background */
+.container::before {
+    content: '✨ 🌟 ⭐ 💫 ✨ 🌟 ⭐ 💫 ✨ 🌟 ⭐ 💫';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+    opacity: 0.1;
+    text-align: center;
+    z-index: 1;
+    pointer-events: none;
+    animation: particle-float 20s linear infinite;
+}
+
+@keyframes particle-float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100vh); }
+}
+
+/* Enhanced RSVP Button with Glow */
+.rsvp-button {
+    position: relative;
+    overflow: visible;
+}
+
+.rsvp-button::after {
+    content: '🎉';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 1.5rem;
+    animation: celebrate-icon 2s ease-in-out infinite;
+}
+
+@keyframes celebrate-icon {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(-15deg) scale(1.2); }
+    75% { transform: rotate(15deg) scale(1.2); }
+}
+
+/* Gorgeous Loading State */
+.loaded .event-section,
+.loaded .godparents-section,
+.loaded .dress-code-section,
+.loaded .gift-guide-section {
+    animation: section-entrance 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes section-entrance {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Mobile Responsive Adjustments for Decorations */
+@media (max-width: 768px) {
+    .party-decoration,
+    .floating-teddy,
+    .floating-balloon {
+        font-size: 2rem;
+    }
+    
+    .decorative-bunting::after {
+        font-size: 1.2rem;
+    }
+    
+    .rocking-horse-left,
+    .hot-air-balloon,
+    .gift-box-decoration {
+        font-size: 2.5rem;
+        opacity: 0.2;
+    }
+    
+    .hanging-item {
+        font-size: 1.5rem;
+    }
+    
+    .angel-decoration {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .teddy-left,
+    .teddy-right {
+        font-size: 1.8rem;
+    }
+    
+    .balloon-1,
+    .balloon-2 {
+        font-size: 1.8rem;
+    }
+    
+    .party-decoration {
+        display: none; /* Hide some decorations on very small screens */
+    }
+}

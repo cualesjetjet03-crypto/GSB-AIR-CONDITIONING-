@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #667eea;
+            margin-top: 0;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .test-item {
+            margin: 15px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+        .status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .status.success {
+            background: #27ae60;
+            color: white;
+        }
+        .status.pending {
+            background: #f39c12;
+            color: white;
+        }
+        .status.error {
+            background: #e74c3c;
+            color: white;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 10px 10px 0;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #5568d3;
+        }
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+        .checklist li {
+            padding: 10px;
+            margin: 5px 0;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+        }
+        .checklist li::before {
+            content: "☐ ";
+            color: #999;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        code {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .info-box {
+            background: #e8f4f8;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-card">
+        <h1>🎉 Christening Invitation Website - Test Page</h1>
+        <p>Use this page to verify your installation and test all features before going live.</p>
+    </div>
+
+    <div class="test-card">
+        <h2>🚀 Quick Start</h2>
+        <div class="info-box">
+            <strong>Local Testing:</strong> If you're using PHP's built-in server, run this command in your project directory:
+            <br><br>
+            <code>php -S localhost:8000</code>
+            <br><br>
+            Then visit <code>http://localhost:8000</code>
+        </div>
+        <a href="index.html" class="btn">🏠 View Main Invitation</a>
+        <a href="view_rsvps.php" class="btn">📋 View RSVPs (Admin)</a>
+    </div>
+
+    <div class="test-card">
+        <h2>✅ Pre-Launch Checklist</h2>
+        <ul class="checklist">
+            <li><strong>Files Uploaded:</strong> All files in correct directories</li>
+            <li><strong>Baby Photo:</strong> Added to <code>assets/baby-photo.jpg</code></li>
+            <li><strong>Background Music:</strong> (Optional) Added to <code>assets/music.mp3</code></li>
+            <li><strong>Directory Permissions:</strong> <code>data/</code> folder is writable (755)</li>
+            <li><strong>Content Updated:</strong> Baby name, date, time, venue, godparents</li>
+            <li><strong>RSVP Contact:</strong> Updated with correct contact information</li>
+            <li><strong>RSVP Form:</strong> Tested and working (submits successfully)</li>
+            <li><strong>Audio Toggle:</strong> Tested (plays/pauses music)</li>
+            <li><strong>Mobile Responsive:</strong> Tested on mobile devices or browser emulation</li>
+            <li><strong>Cross-Browser:</strong> Tested in Chrome, Firefox, Safari, Edge</li>
+            <li><strong>Admin Password:</strong> Changed default password in <code>view_rsvps.php</code></li>
+            <li><strong>HTTPS Enabled:</strong> SSL certificate installed (recommended)</li>
+        </ul>
+    </div>
+
+    <div class="test-card">
+        <h2>🧪 Test Scenarios</h2>
+        
+        <div class="test-item">
+            <h3>1. Visual Layout Test</h3>
+            <p>✓ Open main invitation page</p>
+            <p>✓ Check all sections display correctly (header, event details, godparents, dress code, gift guide)</p>
+            <p>✓ Verify baby photo displays (or placeholder if not added)</p>
+            <p>✓ Check watercolor background and animations</p>
+        </div>
+
+        <div class="test-item">
+            <h3>2. RSVP Form Test</h3>
+            <p>✓ Click "Count Me In (RSVP)" button</p>
+            <p>✓ Modal opens smoothly</p>
+            <p>✓ Fill out form with test data:</p>
+            <ul style="margin-left: 20px;">
+                <li>Name: Test Guest</li>
+                <li>Guests: 2</li>
+                <li>Message: This is a test RSVP</li>
+            </ul>
+            <p>✓ Submit form</p>
+            <p>✓ Success message appears</p>
+            <p>✓ Modal closes after 2 seconds</p>
+            <p>✓ Check <code>data/rsvps.json</code> file was created with test data</p>
+        </div>
+
+        <div class="test-item">
+            <h3>3. Form Validation Test</h3>
+            <p>✓ Try submitting form with empty name (should show error)</p>
+            <p>✓ Try submitting with 0 guests (should show error)</p>
+            <p>✓ Try submitting with negative number (should show error)</p>
+            <p>✓ Try submitting with text in guests field (should show error)</p>
+        </div>
+
+        <div class="test-item">
+            <h3>4. Audio Toggle Test</h3>
+            <p>✓ Click audio toggle button</p>
+            <p>✓ Music starts playing (if music file exists)</p>
+            <p>✓ Button icon changes to 🔊</p>
+            <p>✓ Click again to pause</p>
+            <p>✓ Button icon changes to 🔇</p>
+        </div>
+
+        <div class="test-item">
+            <h3>5. Responsive Design Test</h3>
+            <p>✓ Resize browser window to mobile size (320px-480px)</p>
+            <p>✓ Check layout adapts properly</p>
+            <p>✓ Test on actual mobile device</p>
+            <p>✓ Verify touch targets are appropriately sized</p>
+            <p>✓ Test modal on mobile</p>
+        </div>
+
+        <div class="test-item">
+            <h3>6. Admin Panel Test</h3>
+            <p>✓ Visit <code>view_rsvps.php</code></p>
+            <p>✓ Login with admin password (default: <code>calix2026</code>)</p>
+            <p>✓ Verify test RSVP appears in list</p>
+            <p>✓ Check statistics (Total RSVPs, Total Guests)</p>
+            <p>✓ Test "Download CSV" button</p>
+            <p>✓ Test "Print List" button</p>
+        </div>
+    </div>
+
+    <div class="test-card">
+        <h2>🔧 Common Issues & Solutions</h2>
+        
+        <div class="test-item">
+            <h3>Issue: RSVP Form Not Working</h3>
+            <strong>Symptoms:</strong> Form submits but no success message
+            <br><br>
+            <strong>Solutions:</strong>
+            <ul style="margin-left: 20px;">
+                <li>Check PHP is installed: <code>php -v</code></li>
+                <li>Verify <code>data/</code> directory exists and is writable</li>
+                <li>Check browser console for errors (F12)</li>
+                <li>Ensure <code>submit_rsvp.php</code> is in root directory</li>
+            </ul>
+        </div>
+
+        <div class="test-item">
+            <h3>Issue: Baby Photo Not Showing</h3>
+            <strong>Solutions:</strong>
+            <ul style="margin-left: 20px;">
+                <li>Verify filename is exactly <code>baby-photo.jpg</code> or <code>baby-photo.png</code></li>
+                <li>Check file is in <code>assets/</code> directory</li>
+                <li>Clear browser cache (Ctrl+F5)</li>
+                <li>Try different image format</li>
+            </ul>
+        </div>
+
+        <div class="test-item">
+            <h3>Issue: Audio Not Playing</h3>
+            <strong>Solutions:</strong>
+            <ul style="margin-left: 20px;">
+                <li>Verify file is named <code>music.mp3</code> in <code>assets/</code></li>
+                <li>Check file format is MP3</li>
+                <li>Try clicking after page loads (browsers block autoplay)</li>
+                <li>Test in different browser</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="test-card">
+        <h2>📊 File Structure Reference</h2>
+        <div class="info-box">
+            <pre style="margin: 0; overflow-x: auto;">
+project/
+├── index.html              ← Main invitation page
+├── styles.css              ← All styling and animations
+├── script.js               ← Interactive JavaScript
+├── submit_rsvp.php         ← Backend RSVP handler
+├── view_rsvps.php          ← Admin panel (password: calix2026)
+├── test.html               ← This test page
+├── .htaccess               ← Apache configuration
+├── README.md               ← Project documentation
+├── INSTALLATION.md         ← Setup guide
+├── assets/
+│   ├── README.md           ← Asset management guide
+│   ├── baby-photo.jpg      ← Baby photo (ADD THIS)
+│   └── music.mp3           ← Background music (OPTIONAL)
+└── data/
+    ├── .gitkeep            ← Keeps directory in git
+    └── rsvps.json          ← RSVPs (auto-created)
+            </pre>
+        </div>
+    </div>
+
+    <div class="test-card">
+        <h2>🔐 Security Reminders</h2>
+        <div class="warning-box">
+            <strong>⚠️ IMPORTANT:</strong>
+            <ul style="margin: 10px 0 0 20px;">
+                <li>Change admin password in <code>view_rsvps.php</code> (default: <code>calix2026</code>)</li>
+                <li>Enable HTTPS before going live (SSL certificate)</li>
+                <li>Protect <code>view_rsvps.php</code> with strong password</li>
+                <li>Regular backup of <code>data/rsvps.json</code></li>
+                <li>Keep PHP updated for security patches</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="test-card">
+        <h2>📞 Need Help?</h2>
+        <p>If you encounter issues:</p>
+        <ol>
+            <li>Check browser console for errors (press F12)</li>
+            <li>Review PHP error logs on your server</li>
+            <li>Verify all files uploaded correctly</li>
+            <li>Check file permissions (especially <code>data/</code> directory)</li>
+            <li>Test in different browser</li>
+            <li>Review <code>INSTALLATION.md</code> for detailed troubleshooting</li>
+        </ol>
+    </div>
+
+    <div class="test-card" style="text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <h2 style="color: white; border: none;">🎊 Ready to Go Live?</h2>
+        <p style="font-size: 18px; margin: 20px 0;">Once all tests pass, you're ready to share your beautiful christening invitation!</p>
+        <a href="index.html" class="btn" style="background: white; color: #667eea; font-size: 18px; padding: 15px 40px;">View Your Invitation →</a>
+    </div>
+
+    <script>
+        // Automatically check some items
+        window.onload = function() {
+            console.log('Test page loaded successfully');
+            
+            // Check if PHP is running
+            fetch('submit_rsvp.php', {
+                method: 'GET'
+            }).then(response => {
+                console.log('PHP backend accessible:', response.status);
+            }).catch(error => {
+                console.error('PHP backend not accessible:', error);
+            });
+        };
+    </script>
+</body>
+</html>

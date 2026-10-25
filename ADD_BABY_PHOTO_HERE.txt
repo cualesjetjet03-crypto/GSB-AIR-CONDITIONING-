@@ -1,0 +1,27 @@
+🎉 IMPORTANT: ADD BABY PHOTO HERE! 🎉
+
+📸 **SAVE THE BABY PHOTO AS:**
+   assets/baby-photo.jpg
+
+📋 **HOW TO ADD IT:**
+1. Save the baby photo image you provided (the adorable baby in blue with teddy bear)
+2. Name it exactly: baby-photo.jpg
+3. Place it in the "assets" folder in this project
+
+📁 **FILE PATH:**
+   c:\Users\Administrator\Documents\Downloads\CALIX CHRISTENING\assets\baby-photo.jpg
+
+✨ **WHAT WILL HAPPEN:**
+Once you add the photo, the website will display baby Calix's beautiful photo 
+surrounded by:
+- Floating teddy bears 🧸
+- Colorful balloons 🎈
+- Sparkling stars ✨
+- Animated decorative elements
+
+🔄 **AFTER ADDING THE PHOTO:**
+Refresh your browser at http://127.0.0.1:8080 to see the gorgeous design!
+
+💡 **TIP:**
+The image you provided is PERFECT! It shows baby Calix in a cute blue outfit
+that matches the christening theme perfectly.
